@@ -30,6 +30,8 @@ class Counter extends Component {
     render() {
 
         return (
+
+            
             <div>
                 <span style={this.styles} className={this.getBadgeClasses()} >{this.formatCount()}</span>
                 <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
@@ -54,6 +56,9 @@ class Counter extends Component {
     }
 }
 
+
+
 export default Counter;
 
-// In span i can add any valid JavaScrpit Code
+// In {} i can add any valid JavaScrpit Code
+// table.table>thead>tr>th * 4

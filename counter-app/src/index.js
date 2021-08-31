@@ -8,7 +8,7 @@ import Counter from './components/counter';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 
-ReactDOM.render( <Counter />,
+ReactDOM.render(<Counter />,
   document.getElementById('root')
 );
 
