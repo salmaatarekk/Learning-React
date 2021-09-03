@@ -1,10 +1,16 @@
 import './App.css';
+import NavBar from './components/navbar';
+import Counters from './components/counters';
+import React from 'react';
 
 function App() {
   return (
-    <main className="container">
-      <h1>Hello World</h1>
-    </main>
+    <React.Fragment>
+   <NavBar/>
+     <main className = "container">
+       <Counters/>
+     </main>
+   </React.Fragment>
   );
 }
 
