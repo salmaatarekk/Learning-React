@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Like from './common/like';
 import Pagination from './common/pagination';
 import {paginate} from '../utils/paginate';
+import ListGroup from './common/listGroup';
 
 class Movies extends Component {
     state = { 
@@ -65,10 +66,15 @@ class Movies extends Component {
 
             
         ],
+        genres: ['Action', 'Thriller', 'Comedy'],
         currentPage : 1,
         pageSize : 4
         
      };
+     componentDidMount()
+     {
+
+     }
 
      handleDelete = movie => {
          const movies = this.state.movies.filter(m => m.id !== movie.id);
@@ -86,6 +92,10 @@ class Movies extends Component {
 
         this.setState({currentPage : page});
      };
+     handleGenreSelect = (genre) => {
+        console.log(genre);
+
+     };
      
 
     render() { 
@@ -99,7 +109,16 @@ class Movies extends Component {
 
         return (
 
-            <React.Fragment>
+            <div className = "row">
+                <div className="col-2">
+                    <ListGroup items = {this.state.genres} 
+                    textProperty = "name"
+                    valueProperty = "_id"
+                    onItemSelect = {this.handleGenreSelect} />
+
+                </div>
+                <div className="col">
+
                 <p>Showing {count} movies in the databse </p>
                 <table className = "table">
                 <thead>
@@ -140,9 +159,9 @@ class Movies extends Component {
                  currentPage = {currentPage}
                  onPageChange = {this.handlePageChange}
                  />
-  
+        </div>
 
-            </React.Fragment>
+            </div>
 
           );
     }
