@@ -7,8 +7,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Counters from './components/counters';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
+import Movies from './components/movies';
 
-ReactDOM.render(<App />,
+ReactDOM.render(<Movies />,
   document.getElementById('root')
 );
 
