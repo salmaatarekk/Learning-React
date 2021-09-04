@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Like from './common/like';
 import Pagination from './common/pagination';
+import {paginate} from '../utils/paginate';
+
 class Movies extends Component {
     state = { 
         movies : [
@@ -87,13 +89,13 @@ class Movies extends Component {
      
 
     render() { 
-        const { pageSize, currentPage} = this.state
+        const { pageSize, currentPage, movies : allMovies} = this.state
         const {length : count} = this.state.movies;
         console.log('count : ', this.state.movies.length);
         if(count === 0)
             return <p>There are no movies in the database</p>;
 
-            
+        const movies = paginate(allMovies, currentPage, pageSize); 
 
         return (
 
@@ -111,7 +113,7 @@ class Movies extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.movies.map(movie =>(
+                    {movies.map(movie =>(
                         <tr key= {movie.id}>
                             <td>{movie.title}</td>
                             <td>{movie.genre}</td>
