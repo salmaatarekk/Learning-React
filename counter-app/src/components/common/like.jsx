@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+//could be converted to a structured function component
 
 class Like extends Component {
     render() { 

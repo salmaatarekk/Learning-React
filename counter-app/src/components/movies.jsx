@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Like from './common/like';
+import Pagination from './common/pagination';
 class Movies extends Component {
     state = { 
         movies : [
@@ -19,9 +20,10 @@ class Movies extends Component {
                 dailyRentalRate : 2.5,
                 liked : true
             }
+            
+        ],
 
-        ]
-
+        pageSize : 4
         
      };
 
@@ -36,6 +38,10 @@ class Movies extends Component {
          movies[idx].liked = !movies[idx].liked;
          this.setState({movies});
          
+     };
+     handlePageChange = (page) => {
+
+        console.log("page");
      };
      
 
@@ -80,6 +86,10 @@ class Movies extends Component {
                 </tbody>
 
                 </table>
+                <Pagination itmesCount = {count}
+                 pageSize = {this.state.pageSize}
+                 onPageChange = {this.handlePageChange}
+                 />
 
             </React.Fragment>
 
