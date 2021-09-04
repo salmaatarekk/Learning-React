@@ -19,10 +19,51 @@ class Movies extends Component {
                 numberInStock: 5,
                 dailyRentalRate : 2.5,
                 liked : true
+            },
+            {
+                id: 3,
+                title : 'Wedding Crashers',
+                genre : 'Comedy',
+                numberInStock: 7,
+                dailyRentalRate : 3.5,
+                liked : true
+            },
+            {
+                id: 4,
+                title : 'Gone Girl',
+                genre : 'Thiller',
+                numberInStock: 7,
+                dailyRentalRate : 4.5,
+                liked : true
+            },
+            {
+                id: 5,
+                title : 'The Sixth Sense',
+                genre : 'Thriller',
+                numberInStock: 4,
+                dailyRentalRate : 3.5,
+                liked : true
+            },
+            {
+                id: 6,
+                title : 'The Averngers',
+                genre : 'Action',
+                numberInStock: 7,
+                dailyRentalRate : 3.5,
+                liked : true
+            },
+            {
+                id: 7,
+                title : 'The End Game',
+                genre : 'Action',
+                numberInStock: 7,
+                dailyRentalRate : 3.5,
+                liked : true
             }
+
             
         ],
-
+        currentPage : 1,
         pageSize : 4
         
      };
@@ -41,16 +82,21 @@ class Movies extends Component {
      };
      handlePageChange = (page) => {
 
-        console.log("page");
+        this.setState({currentPage : page});
      };
      
 
     render() { 
+        const { pageSize, currentPage} = this.state
         const {length : count} = this.state.movies;
+        console.log('count : ', this.state.movies.length);
         if(count === 0)
             return <p>There are no movies in the database</p>;
 
+            
+
         return (
+
             <React.Fragment>
                 <p>Showing {count} movies in the databse </p>
                 <table className = "table">
@@ -86,10 +132,13 @@ class Movies extends Component {
                 </tbody>
 
                 </table>
-                <Pagination itmesCount = {count}
-                 pageSize = {this.state.pageSize}
+                <Pagination 
+                itmesCount = {count}
+                 pageSize = {pageSize}
+                 currentPage = {currentPage}
                  onPageChange = {this.handlePageChange}
                  />
+  
 
             </React.Fragment>
 
