@@ -9,8 +9,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import Movies from './components/movies';
 import like from './components/common/like';
+import {BrowserRouter} from 'react-router-dom'
 
-ReactDOM.render(<Movies />,
+ReactDOM.render(
+<BrowserRouter>
+<App />
+</BrowserRouter>
+,
   document.getElementById('root')
 );
 
