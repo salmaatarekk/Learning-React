@@ -6,6 +6,7 @@ import {Route, Redirect, Switch} from 'react-router-dom'
 import Customers from './components/customers';
 import Rentals from './components/rentals';
 import NotFound from './components/notFound';
+import MovieForm from './components/movieForm';
 
 // the commented code realted to counter application
 class App extends Component {
@@ -68,9 +69,12 @@ class App extends Component {
       //   />
       // </main>
       // </React.Fragment>
+      <React.Fragment>
+      <NavBar />
 
       <main className = "container" >
         <Switch>
+        <Route path="/movies.:id" component={MovieForm} /> 
         <Route path="/movies" component={Movies}></Route>
         <Route path="/customers" component={Customers}></Route>
         <Route path="/rentals" component={Rentals}></Route>
@@ -79,6 +83,7 @@ class App extends Component {
         <Redirect to='/not-found'/>
         </Switch>
       </main>
+      </React.Fragment>
      
 
       );

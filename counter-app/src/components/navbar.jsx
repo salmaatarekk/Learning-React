@@ -1,24 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 // Stateless Function Component
 
 const NavBar = () =>{
     return (
-//         <nav className="navbar navbar-light bg-light">
-//      <a className="navbar-brand" href="#">Navbar
-//      <span className="badge badge-pill badge-secondary">
-//          {totalCounters}
-         
-//          </span>
-//      </a>
-//  </nav> );
-        <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/products">Products</Link></li>
-            <li><Link to="/posts/2018/06">Posts</Link></li>
-            <li><Link to="/admin">Admin</Link></li>
-        </ul>
-    );
+    <nav classname = "navbar navbar-expand-lg navbar-light bg-light" >
+        <Link className="navbar-brand" to="/" >Vidly</Link>
+        <button className="navbar-toggler" 
+        type="button"
+         data-toggle="collapse"
+         data-target="#navbarNavAltMarkup"
+         aria-controls="navbarNavAltMarkup"
+         aria-expanded="false"
+         aria-label="Toggle navigation"
+         >
+        <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className ="navbar-nav" >
+         <NavLink className="nav-item nav-link" to="/movies" >Movies</NavLink>
+         <NavLink className="nav-item nav-link" to="/customers" >Customers</NavLink>
+         <NavLink className="nav-item nav-link" to="/rentals" >Renatals</NavLink>
+        </div>
+        </div>
+
+
+    </nav>
+
+ );
+      
+    
 }
 
 /*

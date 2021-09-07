@@ -1,8 +1,8 @@
 import React from 'react';
 
-const MovieForm = () => {
+const MovieForm = ( {match} ) => {
     return ( 
-        <h1>Movie Form</h1>
+        <h1>Movie Form {match.params.id}</h1>
      );
 }
  

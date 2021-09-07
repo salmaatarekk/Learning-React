@@ -9,7 +9,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import Movies from './components/movies';
 import like from './components/common/like';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom';
+import NavBar from './components/navbar';
 
 ReactDOM.render(
 <BrowserRouter>
