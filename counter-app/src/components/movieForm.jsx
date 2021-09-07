@@ -2,7 +2,14 @@ import React from 'react';
 
 const MovieForm = ( {match} ) => {
     return ( 
-        <h1>Movie Form {match.params.id}</h1>
+        <div>
+            <h1>
+                Movie Form {match.params.id}
+            </h1>
+            <button className="btn btn-primary" >Save</button>
+        </div>
+
+
      );
 }
  
