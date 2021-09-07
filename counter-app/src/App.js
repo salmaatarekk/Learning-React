@@ -71,7 +71,7 @@ class App extends Component {
       // </main>
       // </React.Fragment>
       <React.Fragment>
-      
+       <NavBar /> 
 
       <main className = "container" >
         <Switch>
