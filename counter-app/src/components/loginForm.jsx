@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './common/input';
 
 class LoginForm extends React.Component {
     username = React.createRef();
@@ -9,7 +10,7 @@ class LoginForm extends React.Component {
     // };
 
     state = {
-        account : {username : {}, password : ''}
+        account : {username : "", password : ''}
     };
     handleSubmit = e => {
         e.preventDefault();
@@ -20,35 +21,22 @@ class LoginForm extends React.Component {
 
     };
 
-    handleChange = e =>{
+    handleChange = ({currntTarget : input}) =>{
+
         const account = {...this.state.account};
-        account.username = e.currntTarget.value;
+        account[input.name] = input.value;
         this.setState( {account} );
     };
     render() { 
+        const {account} = this.state;
 
         return (
         <div>
             <h1>Login</h1>
             <form onSubmit = {this.handleSubmit} >
-                <div className="form-group"><label htmlFor="username">Username</label>
-                <input 
-                onChange = {this.handleChange}
-                value = {this.state.account.username} 
-                autoFocus
-                ref = {this.username}
-                id="username"
-                type="text"
-                className="form-control"
-                />
-                </div>
-                <div className="form-group"><label htmlFor="password">Password</label>
-                <input
-                 id="password"
-                  type="text"
-                   className="form-control"
-                    />
-                    </div>
+             <Input name = "username" value = {account.username} label = "Username" onChange = {this.handleChange} autoFocus = {true}  />  
+             <Input name = "password" value = {account.password} label = "Password" onChange = {this.handleChange} autoFocus = {false} />
+            
             <button  className="btn btn-primary">Login</button>
             </form>
         </div>
