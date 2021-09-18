@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
     // };
 
     state = {
-        account : {username : "", password : ''},
+        account : {username : '', password : ''},
         errors : {}
     };
     validate = () => {
@@ -30,7 +30,7 @@ class LoginForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         // call the server
-        const errors = this.validate;
+        const errors = this.validate();
         console.log(errors);
         this.setState( {errors : errors || {} });
         if(errors)
@@ -39,12 +39,33 @@ class LoginForm extends React.Component {
         console.log("Done " + username);
 
     };
+    validateProperty = ({name, value}) => {
+        if(name === 'username')
+        {
+            if(value.trim() === '')
+                return 'Username is required.';
 
-    handleChange = ({currntTarget : input}) =>{
+        }
+        if(name === 'password')
+        {
+            if(value.trim() === '')
+                return 'Password is required.';
+
+        }
+
+    };
+
+    handleChange = ({currentTarget : input}) =>{
+        const errors = {...this.state.errors};
+        const errorMessage = this.validateProperty(input);
+        if(errorMessage)
+            errors[input.name] = errorMessage;
+        else
+            delete errors[input.name];
 
         const account = {...this.state.account};
         account[input.name] = input.value;
-        this.setState( {account} );
+        this.setState( {account, errors} );
     };
     render() { 
         const {account, errors} = this.state;
