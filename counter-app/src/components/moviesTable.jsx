@@ -16,19 +16,21 @@ class MoviesTable extends Component {
         {key : 'delete',
          content : movie => <button onClick = {() => this.props.onDelete(movie)}   className= "btn btn-danger btn-sm">Delete</button>}
     ];
+   
     
 
     render() { 
         
         const {movies , onSort, sortColumn} = this.props;
         return ( 
+            <React.Fragment>
            <Table
            columns = {this.columns}
            data = {movies}
            sortColumn = {sortColumn}
            onSort = {onSort}
            />
-    
+            </React.Fragment>
          );
 
     }
