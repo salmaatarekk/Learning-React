@@ -1,6 +1,7 @@
 import { object } from 'prop-types';
 import React, { Component } from 'react';
 import Input from './common/input';
+import Joi from 'joi-browser';
 
 class LoginForm extends React.Component {
     username = React.createRef();
@@ -14,7 +15,17 @@ class LoginForm extends React.Component {
         account : {username : '', password : ''},
         errors : {}
     };
+    schema = {
+        username : Joi.string().required(),
+        password : Joi.string().required()
+    };
     validate = () => {
+
+       const result = Joi.validate(this.state.account, this.schema, 
+        {abortEarly : false}
+        );
+        console.log(result);
+
     const errors = {};
     const {account} = this.state;
 
