@@ -59,7 +59,7 @@ class From extends Component {
         className="btn btn-primary">{label}</button>
     }
 
-    renderInput(name, label, autoFocus, type = "text"){
+    renderInput(name, label,  autoFocus, type = "text"){
         const {data, errors} = this.state;
         return(
         <Input
