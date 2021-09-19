@@ -11,10 +11,11 @@ import Movies from './components/movies';
 import like from './components/common/like';
 import {BrowserRouter} from 'react-router-dom';
 import NavBar from './components/navbar';
+import HTT_APP from './components/http-app';
 
 ReactDOM.render(
 <BrowserRouter>
-<App />
+<HTT_APP />
 </BrowserRouter>
 ,
   document.getElementById('root')
