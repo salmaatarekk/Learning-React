@@ -9,8 +9,12 @@ import NotFound from './components/notFound';
 import MovieForm from './components/movieForm';
 import LoginForm from './components/loginForm';
 import Register from './components/register';
+import axios from 'axios';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// the commented code realted to counter application
+
+// the commented code related to counter application
 class App extends Component {
   
   state = {
@@ -22,7 +26,11 @@ class App extends Component {
     //     {id: 4, value: 0}
         
     // ]
+    posts : []
 };
+componentDidMount() {
+ const promise = axios.get('');
+}
 // handleDelete = counterId => {
 //     console.log('Deleting...', counterId);
 //     const counters = this.state.counters.filter(c => c.id != counterId);
@@ -72,6 +80,7 @@ class App extends Component {
       // </main>
       // </React.Fragment>
       <React.Fragment>
+        <ToastContainer />
        <NavBar /> 
 
       <main className = "container" >
